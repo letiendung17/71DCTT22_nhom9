@@ -1,0 +1,26 @@
+.buttonNm {
+  overflow: visible;
+  cursor: pointer;
+  min-width: 5rem;
+  min-height: 2.125rem;
+  box-sizing: border-box;
+  padding: 0.25rem 0.75rem;
+  margin: 0 8px 8px 0;
+  color: rgba(0, 0, 0, 0.8);
+  text-align: left;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  position: relative;
+  background: #fff;
+  outline: 0;
+  word-break: break-word;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttonNm:hover {
+  color: rgb(238, 77, 45);
+}
+.btn-classccc:hover {
+  color: rgb(45, 238, 122);
+}

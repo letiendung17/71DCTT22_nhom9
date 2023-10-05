@@ -1,0 +1,33 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin"
+    },
+    {
+      "username": "chauvo2510",
+      "password": "chauvo2510",
+      "id": 2
+    },
+    {
+      "username": "datgold",
+      "password": "datgold",
+      "id": 3
+    },
+    {
+      "username": "chauvo",
+      "password": "1234",
+      "id": 4
+    },
+    {
+      "username": "hoctrothaydan",
+      "password": "1234",
+      "nameuser": "vo ngoc chau",
+      "address": "hoc mon hcm",
+      "phone": "0398134817",
+      "avatar": "C:\\fakepath\\FB_IMG_1582772954672.jpg",
+      "id": 5
+    }
+  ]
+}

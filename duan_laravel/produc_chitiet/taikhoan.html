@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="plugins/bootstrap-5.2.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="taikhoan.css">
+    <title>Document</title>
+</head>
+
+<body style="background-color: rgb(245, 245, 245); margin-top: 100px;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <nav class="nav flex-column">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-black " data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false"> <img src="img/profile.png" class="imgcss pb-2" alt=""> <span>Tài
+                                khoản của tui</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Hồ sơ</a></li>
+                            <li><a class="dropdown-item" href="#">Ngân hàng</a></li>
+                            <li><a class="dropdown-item" href="#">Địa chỉ</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
+                        </ul>
+                    </li>
+                    <a class="nav-link active text-black" aria-current="page" href="#"><img class="imgcss mb-1 me-1"
+                            src="img/donmua.png" alt="">Đơn mua</a>
+                    <a class="nav-link text-black" href="#"><img src="img/thongbao.png" class="imgcss mb-1  mb-1 me-1"
+                            alt="">Thông báo</a>
+                    <a class="nav-link text-black" href="#"><img src="img/vocheck.png" class="imgcss mb-1 me-1"
+                            alt="">Kho
+                        Voucher</a>
+                    <a class="nav-link  text-black"><img src="img/a0ef4bd8e16e481b4253bd0eb563f784.png"
+                            class="imgcss mb-1" alt="">
+                        Shop xu</a>
+                </nav>
+            </div>
+            <div class="col-9 " style="background-color: white;">
+                <div class="row">
+                    <div class="col-9">
+                        <form action="">
+
+                            <div class="row">
+                                <div class="">
+                                    <div class="qlhs">
+                                        <h3 class="mt-3">Hồ sơ của tui</h3>
+                                        <p>quảng lý hồ sơ của tui</p>
+                                    </div>
+                                    <hr class="hr-css ">
+                                    <div>
+                                        <p> <span class="me-3 ms-3">Tên tài khoản</span>
+                                            <input type="text" class="form-control w-25 d-inline">
+                                        <p class="mrs-p">tên đăng nhập chỉ thây đổi một lần</p>
+
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p> <span class="me-3 ms-3 mrs-span">Tên</span>
+                                            <input type="text" class="form-control w-25 d-inline">
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p> <span class="me-3 ms-3 mrs-email">Email</span>
+                                            <input type="text" class="form-control w-25 d-inline">
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p> <span class="me-3 ms-3 mrs-email">Số điện thoại</span>
+                                            <a href="#" class="sdt">Thêm</a>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p> <span class="me-3 ms-3 mrs-email">Giới tính</span>
+
+                                            <input type="radio" name="gioitinh" value="Nam">
+                                            <label for="" class="me-3 ">Nam</label>
+                                            <input type="radio" name="gioitinh" value="Nu">
+                                            <label for="">Nữ</label>
+
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p> <span class="me-3 ms-3 mrs-year">Ngày sinh</span>
+                                            <input type="datetime-local">
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-css">Lưu</button>
+                        </form>
+                    </div>
+                    <div class="col-3">
+                        <button id="file-selector" class="chonAnh btn">Chọn Ảnh</button>
+                        <input type="file" id="file-input" style="display: none;">
+                        <div class="dunglf">
+                            <p>Dung lượng file tối đa 1MB</p>
+                            <p>Định dạng file: png...</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("file-selector").addEventListener("click", function () {
+            document.getElementById("file-input").click();
+        });
+    </script>
+
+    <script src="plugins/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

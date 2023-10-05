@@ -1,0 +1,51 @@
+.imgcss {
+  max-width: 8%;
+}
+.hr-css {
+  background-color: rgb(146, 146, 146);
+  margin-left: 30px;
+  width: 90%;
+}
+.div-tdn {
+  margin-left: 20px;
+}
+.form-css {
+  border-color: rgb(146, 146, 146);
+}
+.mrs-p {
+  margin-left: 130px;
+  margin-top: -15px;
+  color: rgb(146, 146, 146);
+}
+.mrs-span {
+  padding-left: 70px;
+}
+.mrs-email {
+  padding-left: 57px;
+}
+.sdt {
+  text-decoration: none;
+}
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  background-color: #f1f1f1;
+  border: 10px solid #ccc;
+}
+.btn-css {
+  margin-left: 200px;
+}
+.chonAnh {
+  border-color: rgb(146, 146, 146);
+  margin-top: 300px;
+}
+.dunglf {
+  color: rgb(146, 146, 146);
+  margin-left: -40px;
+}
+.qlhs {
+  margin-left: 30px;
+}
+.mrs-year {
+  padding-left: 25px;
+}

@@ -1,0 +1,23 @@
+<form>
+  <select id="first-select">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+  </select>
+  <select id="second-select" style="display:none;">
+    <option value="sub_option1">Sub Option 1</option>
+    <option value="sub_option2">Sub Option 2</option>
+    <option value="sub_option3">Sub Option 3</option>
+  </select>
+</form>
+
+<script>
+  document.getElementById("first-select").addEventListener("change", function(){
+    var selectedOption = this.options[this.selectedIndex].value;
+    if(selectedOption == "option2"){
+      document.getElementById("second-select").style.display = "block";
+    } else {
+      document.getElementById("second-select").style.display = "none";
+    }
+  });
+</script>

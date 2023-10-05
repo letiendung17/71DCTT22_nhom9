@@ -1,0 +1,449 @@
+<form method="post" action="{{ route('submit_form') }}">
+    @csrf
+    <div>
+        <label for="sizes">Sizes:</label>
+        <input type="text" name="sizes" id="sizes">
+    </div>
+    <div>
+        <label for="colors">Colors:</label>
+        <input type="text" name="colors" id="colors">
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Size</th>
+                <th>Color</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($sizes as $size)
+                @foreach ($colors as $color)
+                    <tr>
+                        <td>{{ $size }}</td>
+                        <td>{{ $color }}</td>
+                        <td><input type="number" name="prices[{{ $size }}][{{ $color }}]"></td>
+                        <td><input type="number" name="quantities[{{ $size }}][{{ $color }}]"></td>
+                    </tr>
+                @endforeach
+            @endforeach
+        </tbody>
+    </table>
+    <button type="submit">Submit</button>
+</form>
+
+
+
+
+
+
+
+
+
+<div class="form-group " >
+    <h3 style="color: #f6412d; font-weight: bold; float: none!important;">Phân Loại Sản Phẩm</h3>
+    <table class="table table-secondary" id="myTable">
+        
+        <th>
+       Tên Phân Loại Sản Phẩm
+        </th>
+    
+        <th>
+        Thông Tin Trả Lời
+        </th>
+        <th><input onclick="addRow()" id="themphanloai" class="btn btn-success fw-bold text-white" value="Thêm Phân Loại"></input></th>
+       
+    </table>
+      <script>
+        var count = 0;
+        function addRow() {
+            // Tắt không hiển thị giá tiền và số lượng sản phẩm
+            document.getElementById("giasp").style.display="none";
+            document.getElementById("slsp").style.display="none";
+
+            for(count==0;count<1;count++)
+            {
+
+ // Get table
+ var table = document.getElementById("myTable");
+            
+            // Create new row
+            var row = table.insertRow(-1);
+            
+            // Create new input field in first cell
+            var cell1 = row.insertCell(0);
+            var input1 = document.createElement("input");
+          
+           
+            input1.value="ví dụ: SIZE, DUNG LƯỢNG,.....";
+                input1.readonly;
+            input1.onfocus = function() {
+    this.value = "";};
+            // input1.name = "ten" + count;
+            input1.name = "ten_phanloai"+count ;
+            cell1.appendChild(input1);
+            
+            // Create new input field in second cell
+            var cell2 = row.insertCell(1);
+            var input2 = document.createElement("input");
+            input2.type = "text";
+          input2.id="inputText" + count;
+            input2.value="cách nhau bởi dấy phẩy";
+        
+            input2.onfocus = function() {
+    this.value = "";};
+    
+            // input2.name ="noidung" + count;
+            input2.name ="ten_option"+count;
+            cell2.appendChild(input2);
+            
+            // Increment count
+            // count++;
+            }
+           
+        }
+        </script>
+    
+      
+    </div>
+
+
+
+    {{-- thêm màu sắc --}}
+    <div class="form-group ">
+        <h3 style="color: #f6412d; font-weight: bold;">Thêm Màu Sắc Cho Sản Phẩm</h3>
+
+        <table class="table table-secondary" id="myTable2">
+            
+            <th>
+           MÀU SẮC (Cách nhau bởi dấu phẩy, vd: ĐEN,TRẮNG,ĐỎ)
+            </th>
+        
+          
+            <th><input onclick="addRow2()" id="themmausac" style="background-color:#f6412d; color: antiquewhite; font-weight: bold;" class="btn fw-bold text-white" value="Thêm Màu Sắc"></input></th>
+           
+        </table>
+          <script>
+            var count2 = 0;
+            function addRow2() {
+                for(count2==0;count2<1;count2++)
+                {
+    
+     // Get table
+     var table = document.getElementById("myTable2");
+                
+                
+          
+                var row1 = table.insertRow(-1);
+            
+
+    
+            var cell3 = row1.insertCell(0);
+                var input3 = document.createElement("input");
+                input3.type = "text";
+              input3.id="mausac"+count2;
+                input3.value="cách nhau bởi dấy phẩy";
+               
+                input3.onfocus = function() {
+        this.value = "";};
+                // input2.name ="noidung" + count;
+                input3.name ="ten_mau"+count2;
+                cell3.appendChild(input3);
+                
+                }
+               
+            }
+            </script>
+        
+          
+        </div>
+
+
+        <table  class="table">
+            {{-- <style>
+                table tr td
+                {
+                    border: 2px solid red;
+                }
+            </style> --}}
+            <thead>
+                <tr>
+                    <td>Phân Loại Sản Phẩm 1</td>
+                    <td>Phân Loại Sản Phẩm 2</td>
+                    <td>Giá</td>
+                    <td>Số Lượng</td>
+                </tr>
+            </thead>
+
+            <tbody id="tableContent">
+            
+            </tbody>
+          
+
+        </table>
+        <script>
+
+var button = document.getElementById("themphanloai");
+
+// Attach click event listener to button
+button.addEventListener("click", function() {
+  // Code to be executed when button is clicked
+  document.getElementById('inputText0').onkeyup = function(){
+  let text = this.value;
+  let array = text.split(',');
+  let table = document.getElementById('tableContent');
+  
+  table.innerHTML = '';
+  for (let i = 0; i < array.length; i++) {
+    table.innerHTML += '<tr><td><input style="max-width: 90px;" type="text" name="input' + i + '" value="' + array[i] + '"></td><td class="datgoldshop_mau"></td><td class="datgoldshop_gia"></td><td class="datgoldshop_sl"></td></tr>';
+  }
+
+                  
+}
+});
+
+
+var button = document.getElementById("themmausac");
+
+// bắt đầu sự kiện cột màu
+button.addEventListener("click", function() {
+  // Code to be executed when button is clicked
+  document.getElementById('mausac0').onkeyup = function(){
+  let text = this.value;
+  let array = text.split(',');
+ 
+//   let table = document.getElementById('datgold');
+ let table = document.getElementsByClassName('datgoldshop_mau');
+
+ table.innerHTML = '';
+
+ 
+
+
+ for(let k=0;k<=table.length;k++){
+  table[k].innerHTML="";
+  for (let i = 0; i < array.length; i++) {
+    table[k].innerHTML += '<p><input style="max-width: 90px;" type="text" name="mausac' + i + '" value="' + array[i] + '"></p>';
+  }
+ }
+
+
+ 
+
+//   <td><input type="text" name="gia'+i+'" style="max-width: 90px;" class="form-control-sm" ></td></td><td><input type="number" name="soluong'+i+'" style="max-width: 90px;" class="form-control-sm" ></td> 
+}
+//Kết thuc sự kiện màu
+
+// Cái này dành cho cột giá tiền trong bảng
+document.getElementById('mausac0').addEventListener("keydown", function(){
+    let text = this.value;
+    let array = text.split(',');
+    let table_gia = document.getElementsByClassName('datgoldshop_gia');
+    table_gia.innerHTML = '';
+    for(let p=0;p<=table_gia.length;p++){
+        table_gia[p].innerHTML="";
+        for (let m = 0; m < array.length; m++) {
+            table_gia[p].innerHTML += '<p><input style="max-width: 90px;" type="text" name="gia' + m + '" onkeyup="this.value = number_format(this.value, 0, \'.\', \',\')"></p>';
+        }
+    }
+});
+// kết thúc cột giá tiền trong bảng
+
+
+// Cái này dành cho cột Số lượng tiền trong bảng
+document.getElementById('mausac0').addEventListener("keydown", function(){
+
+let text = this.value;
+let array = text.split(',');
+let table_gia = document.getElementsByClassName('datgoldshop_sl');
+table_gia.innerHTML = '';
+for(let p=0;p<=table_gia.length;p++){
+table_gia[p].innerHTML="";
+for (let m = 0; m < array.length; m++) {
+table_gia[p].innerHTML += '<p><input style="max-width: 90px;" type="number" name="soluong' + m + '" ></p>';
+}
+} 
+
+// kết thúc cột sl trong bảng
+
+});
+ 
+
+
+});
+
+
+
+        
+           
+         </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$product= new San_pham;
+    $nganhhang=Nganh_hang::all();
+    $thongtinct=new Thong_tin_ct;
+    $thuonghieu=new Thuong_hieu;
+       
+ 
+  $data=$request->all();
+    $nganhhang_chon=$data['nganhhang'];
+    $thuonghieu_chon=$data['thuonghieu'];
+    $nganhhangcon_chon=$data['nganhhangcon'];
+    $thongtinct_chon=$data['ttct'];
+    $thongtinct->MA_NH=$nganhhang_chon;
+    $thongtinct->MA_TH=$thuonghieu_chon;
+ 
+  $product->MA_NH=$nganhhang_chon;
+  $product->MA_TH=$thuonghieu_chon;
+
+        $phanloai=new Phanloai_sp();
+        $phanloai->TEN_PHANLOAI=$request->input('ten_phanloai0');
+        $phanloai->Ten_option=$request->input('ten_option0');
+        $phanloai->save();
+          //Thêm Vào Bảng Màu
+          $mausac=new Mau_sac();
+          $mausac->TEN_MAU=$request->input("ten_mau0");
+          $mausac->save();
+ 
+
+
+
+
+  $product->TEN_SP=$request->input('ten_sp');
+  $product->MOTA_SP=$request->input('mota_sp');
+  $product->DVT=$request->input('dvt');
+  $product->GIA_SP=$request->input("gia_sp");
+  $product->SL_SP=$request->input('sl_sp');
+
+  $loginUser=auth()->user();
+  $nhanvien=\App\Models\Nhan_vien::find($loginUser->MA_NV);
+  $product->MA_NV=$nhanvien->MA_NV;
+
+
+
+  
+
+  $request->validate([
+    'avata_sp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+]);
+
+$image = $request->file('avata_sp');
+$imageName = time().'.'.$image->getClientOriginalExtension();
+$image->move(public_path('images'), $imageName);
+
+// Lưu đường dẫn hình ảnh vào cơ sở dữ liệu
+$imagePath = 'images/'.$imageName;
+$product->AVATA_SP=$imagePath;
+
+$product->save();
+// Lưu nhiều ảnh sản phẩm vào cơ sở dữ liệu
+$images = $request->file('file_anhsp');
+
+        foreach ($images as $imagesp) {
+            $imageData = file_get_contents($imagesp);
+            $base64 = base64_encode($imageData);
+            $imageModel = new Anh_sp();
+            $imageModel->MA_SP=$product->MA_SP;
+            $imageModel->FILE_ANHSP = $base64;
+            $imageModel->save();
+        }
+
+
+        return Redirect::to("admin/danh-sach-nganh-hang");
+}
+  public function add_danhmuccon(Request $request){
+      $data = $request->all();
+  $dulieuchon = $data['nganhhangchon'];
+      $them_danhmuc=new Nganh_hang;
+      $them_danhmuc->TEN_NH=$request->input('danhmuccon');
+      $them_danhmuc->NH_CON=$dulieuchon;
+      $them_danhmuc->save();
+      return Redirect::to("admin/danh-sach-nganh-hang");
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  đây là phần lấy ra và tách gộp nó lại hơi khó hiểu nhen
+  $sizes_input = $request->input('ten_option0');
+  $colors_input =$request->input('ten_mau0');
+  // Tách chuỗi thành mảng các giá trị
+$sizes = explode(',', $sizes_input);
+$colors = explode(',', $colors_input);
+
+
+
+  // $phanloai->TEN_OPTION=implode(',', $sizes);;
+
+
+// Tạo mảng kết hợp giá trị size và màu sắc
+$size_color_combinations = [];
+
+foreach ($sizes as $size) {
+
+    foreach ($colors as $color) {
+      
+
+        $size_color_combinations[] = $size . '/' . $color;
+        
+    }
+}
+// $phanloai->save();
+// In ra mảng kết hợp size và màu sắc
+// print_r($size_color_combinations);
+// print_r($sizes);
+// echo"</br>";
+// print_r($colors);
